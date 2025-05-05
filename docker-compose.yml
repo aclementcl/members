@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  webapi:
+    build:
+      context: .
+      dockerfile: src/WebApi/Dockerfile
+    container_name: webapi
+    ports:
+      - "5175:80"
+    depends_on:
+      - db
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - ASPNETCORE_URLS=${ASPNETCORE_URLS}
+      - 'ConnectionStrings__DefaultConnection=Server=db;Database=ClubAppDb;User Id=${DB_USERNAME};Password=${DB_PASSWORD};TrustServerCertificate=true;'
+  db:
+    image: mcr.microsoft.com/azure-sql-edge
+    container_name: azure-sql-edge
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - ./sqlserverdata:/var/opt/mssql
+    logging:
+      driver: "none"
+      
+volumes:
+  sqlserverdata:
