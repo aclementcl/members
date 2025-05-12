@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ClubApp.Data;
-using ClubApp.Models;
+using Club.Infrastructure.Data;
+using Club.Infrastructure.Models;
 
 namespace ClubApp.Controllers;
 
