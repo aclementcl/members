@@ -1,0 +1,6 @@
+@Club.Webapi_HostAddress = http://localhost:5116
+
+GET {{Club.Webapi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
