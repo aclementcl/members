@@ -14,7 +14,7 @@ This is a .NET 9 Web API project using Entity Framework Core and SQL Server, con
 1. **Clone the repository** (if not already cloned):
 
 ```bash
-git clone https://github.com/your-username/ClubApp.git
+git clone https://aclementecl@dev.azure.com/aclementecl/Club/_git/Club
 cd ClubApp
 ```
 2. **Create a .env file in the root directory using .env.example**
