@@ -39,17 +39,17 @@ public class MemberController : ControllerBase
     }
 
     // POST: api/member
-    // [HttpPost]
-    // public async Task<ActionResult<Member>> PostMember(Member member)
-    // {
-    //     if (member == null)
-    //     {
-    //         return BadRequest();
-    //     }
-    //     await _memberService.AddMemberAsync(member);
-
-    //     // return CreatedAtAction(nameof(GetMember), new { id = member.Id }, member);
-    // }
+    [HttpPost]
+    public async Task<ActionResult> Create(Member member)
+    {
+        if (member == null)
+        {
+            return BadRequest();
+        }
+        await _memberService.AddMemberAsync(member);
+        return Created("User created successfully", member);
+        // return CreatedAtAction(nameof(GetMember), new { id = member.Id }, member);
+    }
 
     // // PUT: api/member/5
     // [HttpPut("{id}")]

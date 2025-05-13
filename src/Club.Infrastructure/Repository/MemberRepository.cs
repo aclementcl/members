@@ -14,8 +14,28 @@ public class MemberRepository : Repository<Member>, IMemberRepository
         return await _context.Members.ToListAsync();
     }
 
-    public Task<Member?> GetByMemberIdAsync(int id)
+    public async Task<Member?> GetByMemberIdAsync(int id)
     {
-        throw new NotImplementedException();
+        return await _context.Members.FirstOrDefaultAsync(m => m.Id == id);
+    }
+
+    public async Task AddAsync(Member member)
+    {
+        await _context.Members.AddAsync(member);
+        await _context.SaveChangesAsync();
+    }
+    public async Task UpdateAsync(Member member)
+    {
+        _context.Members.Update(member);
+        await _context.SaveChangesAsync();
+    }
+    public async Task DeleteAsync(int id)
+    {
+        var member = await GetByMemberIdAsync(id);
+        if (member != null)
+        {
+            _context.Members.Remove(member);
+            await _context.SaveChangesAsync();
+        }
     }
 }
