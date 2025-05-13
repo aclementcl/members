@@ -27,4 +27,14 @@ public class MemberService
     {
         await _memberRepository.AddAsync(member);
     }
+
+    public async Task UpdateMemberAsync(Member member)
+    {
+        await _memberRepository.UpdateAsync(member);
+    }
+
+    public async Task DeleteMemberAsync(int id)
+    {
+        await _memberRepository.DeleteAsync(id);
+    }
 }

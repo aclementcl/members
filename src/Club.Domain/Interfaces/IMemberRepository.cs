@@ -7,4 +7,6 @@ public interface IMemberRepository
     Task<IEnumerable<Member>> GetAllMembersAsync();
     Task<Member?> GetByMemberIdAsync(int id);
     Task AddAsync(Member member);
+    Task UpdateAsync(Member member);
+    Task DeleteAsync(int id);
 }
