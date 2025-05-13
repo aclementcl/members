@@ -14,6 +14,9 @@ COPY ["src/Club.Infrastructure/Club.Infrastructure.csproj", "Club.Infrastructure
 COPY ["src/Club.Domain/Club.Domain.csproj", "Club.Domain/"]
 
 RUN dotnet restore "Club.Webapi/Club.Webapi.csproj"
+RUN dotnet restore "Club.Application/Club.Application.csproj"
+RUN dotnet restore "Club.Infrastructure/Club.Infrastructure.csproj"
+RUN dotnet restore "Club.Domain/Club.Domain.csproj"
 
 # Copiar el código fuente completo
 COPY src/ .

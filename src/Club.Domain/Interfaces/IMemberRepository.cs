@@ -4,7 +4,7 @@ namespace Club.Domain.Interfaces;
 
 public interface IMemberRepository
 {
-    Task<IEnumerable<Member>> GetAllAsync();
-    Task<Member?> GetByIdAsync(int id);
+    Task<IEnumerable<Member>> GetAllMembersAsync();
+    Task<Member?> GetByMemberIdAsync(int id);
     Task AddAsync(Member member);
 }

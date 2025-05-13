@@ -15,12 +15,12 @@ public class MemberService
 
     public async Task<IEnumerable<Member>> GetAllMembersAsync()
     {
-        return await _memberRepository.GetAllAsync();
+        return await _memberRepository.GetAllMembersAsync();
     }
 
     public async Task<Member?> GetMemberByIdAsync(int id)
     {
-        return await _memberRepository.GetByIdAsync(id);
+        return await _memberRepository.GetByMemberIdAsync(id);
     }
 
     public async Task AddMemberAsync(Member member)

@@ -17,7 +17,7 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.AddDbContext<ClubContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 // Repositories
-builder.Services.AddScoped<IMemberRepository, MemberRespository>();
+builder.Services.AddScoped<IMemberRepository, MemberRepository>();
 
 // Services
 builder.Services.AddScoped<MemberService>();

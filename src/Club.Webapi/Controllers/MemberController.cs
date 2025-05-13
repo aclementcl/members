@@ -38,14 +38,17 @@ public class MemberController : ControllerBase
         return member;
     }
 
-    // // POST: api/member
+    // POST: api/member
     // [HttpPost]
     // public async Task<ActionResult<Member>> PostMember(Member member)
     // {
-    //     _context.Members.Add(member);
-    //     await _context.SaveChangesAsync();
+    //     if (member == null)
+    //     {
+    //         return BadRequest();
+    //     }
+    //     await _memberService.AddMemberAsync(member);
 
-    //     return CreatedAtAction(nameof(GetMember), new { id = member.Id }, member);
+    //     // return CreatedAtAction(nameof(GetMember), new { id = member.Id }, member);
     // }
 
     // // PUT: api/member/5
