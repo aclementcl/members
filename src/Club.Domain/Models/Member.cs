@@ -1,4 +1,4 @@
-namespace Club.Infrastructure.Models;
+﻿namespace Club.Domain.Models;
 
 public class Member
 {

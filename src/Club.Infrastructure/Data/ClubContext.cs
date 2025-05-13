@@ -1,4 +1,4 @@
-using Club.Infrastructure.Models;
+using Club.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Club.Infrastructure.Data;

@@ -488,3 +488,11 @@ $RECYCLE.BIN/
 */[Oo]bj/
 
 /sqlserverdata/
+
+# .NET
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.db

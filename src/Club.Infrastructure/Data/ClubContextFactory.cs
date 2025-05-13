@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using Club.Infrastructure.Data;
 
 namespace Club.Infrastructure.Data;
 
