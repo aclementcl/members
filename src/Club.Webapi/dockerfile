@@ -2,25 +2,12 @@
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
 WORKDIR /app
 EXPOSE 80
+COPY *.csproj .
+RUN dotnet restore
 
 # Build Stage
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
-
-# Copiar los archivos de proyecto para restaurar dependencias
-COPY ["src/Club.Webapi/Club.Webapi.csproj", "Club.Webapi/"]
-COPY ["src/Club.Application/Club.Application.csproj", "Club.Application/"]
-COPY ["src/Club.Infrastructure/Club.Infrastructure.csproj", "Club.Infrastructure/"]
-COPY ["src/Club.Domain/Club.Domain.csproj", "Club.Domain/"]
-
-RUN dotnet restore "Club.Webapi/Club.Webapi.csproj"
-RUN dotnet restore "Club.Application/Club.Application.csproj"
-RUN dotnet restore "Club.Infrastructure/Club.Infrastructure.csproj"
-RUN dotnet restore "Club.Domain/Club.Domain.csproj"
-
-# Copiar el código fuente completo
 COPY src/ .
 WORKDIR "/src/Club.Webapi"
-
-# Ejecutar en modo desarrollo con hot-reload
-ENTRYPOINT ["dotnet", "watch", "run", "--urls", "http://0.0.0.0:80"]
+CMD ["dotnet", "watch"]

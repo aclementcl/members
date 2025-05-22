@@ -13,9 +13,26 @@ builder.Services.AddSwaggerGen(options =>
     options.SwaggerDoc("v1", new() { Title = "Club API", Version = "v1" });
 });
 
-// EF Core DbContext
-builder.Services.AddDbContext<ClubContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+// // EF Core DbContext
+// builder.Services.AddDbContext<ClubContext>(options =>
+//     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+// DbContext
+if (builder.Environment.IsEnvironment("Testing"))
+{
+    // InMemory Database for testing
+    builder.Services.AddDbContext<ClubContext>(options =>
+        options.UseInMemoryDatabase("TestDatabase"));
+}
+else
+{
+    // SQL Server Dev/Prod
+    builder.Services.AddDbContext<ClubContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+}
+
+
 // Repositories
 builder.Services.AddScoped<IMemberRepository, MemberRepository>();
 

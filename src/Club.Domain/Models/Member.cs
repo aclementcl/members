@@ -12,6 +12,6 @@ public class Member
     [EmailAddress(ErrorMessage = "Invalid email format")]
     [MaxLength(100)]
     public string Email { get; set; }
-    [Phone(ErrorMessage = "Invalid phone number format")]
-    public string Phone { get; set; } = string.Empty;
+    // [Phone(ErrorMessage = "Invalid phone number format")]
+    // public string Phone { get; set; } = string.Empty;
 }
