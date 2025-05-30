@@ -3,15 +3,15 @@ services:
   webapi:
     build:
       context: .
-      dockerfile: ./src/Club.WebApi/Dockerfile
+      dockerfile: ./src/Club.WebApi/dockerfile.dev
     container_name: webapi
     ports:
       - "5175:80"
-    volumes:
-      - ./src/Club.Webapi:/src/Club.Webapi
-      - ./src/Club.Application:/src/Club.Application
-      - ./src/Club.Infrastructure:/src/Club.Infrastructure
-      - ./src/Club.Domain:/src/Club.Domain
+    # volumes:
+    #   - ./src/Club.Webapi:/src/Club.Webapi
+    #   - ./src/Club.Application:/src/Club.Application
+    #   - ./src/Club.Infrastructure:/src/Club.Infrastructure
+    #   - ./src/Club.Domain:/src/Club.Domain
     depends_on:
       - db
     environment:
