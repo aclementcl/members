@@ -37,8 +37,8 @@ jobs:
       env:
           NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
-        docker build -t $DOCKER_USER/members:$NEW_VERSION -f src/Club.Webapi/dockerfile .
-        docker build -t $DOCKER_USER/members:latest -f src/Club.Webapi/dockerfile .
+        docker build -t $DOCKER_USER/members:$NEW_VERSION -f src/Club.Webapi/dockerfile.dev .
+        docker build -t $DOCKER_USER/members:latest -f src/Club.Webapi/dockerfile.dev .
     - name: Push Docker Image
       env:
           NEW_VERSION: ${{ steps.version.outputs.version }}
