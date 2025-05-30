@@ -10,6 +10,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:80
+      DB_USERNAME: ${{ secrets.DB_USERNAME }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
       DOCKER_USER: ${{ secrets.DOCKER_USER }}
     steps:
     - name: Checkout code
